@@ -537,14 +537,24 @@ class _MaterialDesktopVideoControlsState
                   () => controller(context).player.previous(),
               const SingleActivator(LogicalKeyboardKey.space): () =>
                   controller(context).player.playOrPause(),
+              const SingleActivator(LogicalKeyboardKey.keyH): () {
+                final rate = controller(context).player.state.position -
+                    const Duration(seconds: 20);
+                controller(context).player.seek(rate);
+              },
               const SingleActivator(LogicalKeyboardKey.keyJ): () {
                 final rate = controller(context).player.state.position -
                     const Duration(seconds: 10);
                 controller(context).player.seek(rate);
               },
-              const SingleActivator(LogicalKeyboardKey.keyI): () {
+              const SingleActivator(LogicalKeyboardKey.keyK): () {
                 final rate = controller(context).player.state.position +
                     const Duration(seconds: 10);
+                controller(context).player.seek(rate);
+              },
+              const SingleActivator(LogicalKeyboardKey.keyL): () {
+                final rate = controller(context).player.state.position +
+                    const Duration(seconds: 20);
                 controller(context).player.seek(rate);
               },
               const SingleActivator(LogicalKeyboardKey.arrowLeft): () {
